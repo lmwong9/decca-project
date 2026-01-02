@@ -71,13 +71,17 @@ collections:
 
   - name: "services"
     label: "Services"
-    file: "data/services.json"
-    fields:
-      - label: "Service List"
-        name: "services"
-        widget: "list"
+    delete: false
+    files:
+      - name: "service_list"
+        label: "All Services"
+        file: "data/services.json"
         fields:
-          - {label: "Icon (Emoji)", name: "icon", widget: "string"}
-          - {label: "Name", name: "name", widget: "string"}
-          - {label: "English Name", name: "english_name", widget: "string"}
+          - label: "Service List"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Icon (Emoji)", name: "icon", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "English Name", name: "english_name", widget: "string"}
 
