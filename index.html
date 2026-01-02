@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Decca - Content Creator & Influencer">
+    <title>Decca - Content Creator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics / Google Tag -->
+    <!-- Replace G-XXXXXXXXXX with your actual Google Analytics Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="images/profile.jpg" alt="Decca Profile Photo" id="profile-pic" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'">
+                </div>
+                <h1 class="name" id="main-name">啟靈者 廸嘉</h1>
+                <h2 class="name-english" id="main-name-en">MissDecca ✨</h2>
+                <p class="tagline" id="main-tagline">Organizer | PR & Event | Spiritual | KOL</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-posts">1,154</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-followers">12K</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-following">3,919</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery1.jpg" alt="Decca Gallery 1" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery2.jpg" alt="Decca Gallery 2" onerror="this.src='https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=600&fit=crop'">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gallery3.jpg" alt="Decca Gallery 3" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop'">
+                    </div>
+                </div>
+            </section>
+
+            <section class="about">
+                <h2 id="about-title">About Me</h2>
+                <p id="about-zh">歡迎來到我的世界！我是廸嘉，一位專業的靈性導師和活動策劃者。透過多年的學習與實踐，我致力於幫助人們找到內心的平靜與方向。</p>
+                <p id="about-en">Welcome to my world! I'm Decca, a professional spiritual guide and event organizer. Through years of learning and practice, I'm dedicated to helping people find inner peace and direction.</p>
+            </section>
+
+            <section class="services">
+                <h2>My Services</h2>
+                <div class="services-grid" id="services-container">
+                    <div class="service-item">
+                        <div class="service-icon">🔮</div>
+                        <h3>啟靈導師</h3>
+                        <p>Spiritual Awakening</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">✨</div>
+                        <h3>靈性導師</h3>
+                        <p>Spiritual Guide</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">💫</div>
+                        <h3>人生導師</h3>
+                        <p>Life Coach</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">💖</div>
+                        <h3>心靈療癒</h3>
+                        <p>Spiritual Healing</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🎴</div>
+                        <h3>占卜</h3>
+                        <p>Divination</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">⏳</div>
+                        <h3>前世今生</h3>
+                        <p>Past Life Regression</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🐾</div>
+                        <h3>動物傳心</h3>
+                        <p>Animal Communication</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🕯️</div>
+                        <h3>先人問事</h3>
+                        <p>Ancestral Communication</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="media">
+                <h2>Media Appearances & Interviews 🎙️</h2>
+                <p class="section-subtitle">Featured on major TV shows and YouTube channels</p>
+                <div class="media-container">
+                    <a href="https://www.youtube.com/@Dikembe-man?si=dgo7XFg8kSvzgaew" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media1.jpg" alt="狄甘比頻道" onerror="this.src='https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2025</span>
+                            <h3>狄甘比頻道</h3>
+                            <p>多片訪問</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?si=mNqaFuNtWGVmGnXZ&v=riVIjFd0cD0&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media2.jpg" alt="D100 魅影空間" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2025-04-17</span>
+                            <h3>D100 《魅影空間》</h3>
+                            <p>電台訪問</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/live/oNTtTztpZyA?si=_Br8fnNG3WCRlQhn" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media3.jpg" alt="異Show" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2025-03-31</span>
+                            <h3>《異Show》直播</h3>
+                            <p>即場解決靈異事件</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?si=06avcVNaCLWul9Nk&v=qrm7P5S3jtc&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media4.jpg" alt="策略王 通靈重案" onerror="this.src='https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2025-03-25</span>
+                            <h3>《策略王 通靈重案》</h3>
+                            <p>德福五屍命案｜通靈</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/live/l5w4_xtX8No?si=AVtjDstvj882MIFp" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media5.jpg" alt="D100啟靈·犯罪課" onerror="this.src='https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2025-03-14</span>
+                            <h3>《D100啟靈·犯罪課》</h3>
+                            <p>即場通靈｜中山美穗/竹內結子</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?si=MDsj1xcHDoofDOD6&v=E-Oy_HPJARk&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="images/media6.jpg" alt="通靈重案 藍可兒" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">2024-12-31</span>
+                            <h3>《策略王 通靈重案》</h3>
+                            <p>與藍可兒通靈</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="view-all-button">
+                    <a href="https://linktr.ee/miss.decca" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                        View All Interviews →
+                    </a>
+                </div>
+            </section>
+
+            <section class="events">
+                <h2>Recent Events & Promotions</h2>
+                <div class="events-container" id="events-container">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">TBA</span>
+                            <span class="month">2025</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>Upcoming Event</h3>
+                            <p>Stay tuned for exciting events and promotions!</p>
+                            <span class="event-tag">Event</span>
+                        </div>
+                    </div>
+                    <div class="event-card promotion">
+                        <div class="event-date">
+                            <span class="day">🎉</span>
+                            <span class="month">NEW</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>Special Promotion</h3>
+                            <p>Check out our latest promotions and special offers!</p>
+                            <span class="event-tag promo">Promotion</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="blog">
+                <h2>Latest Blog Posts</h2>
+                <div class="blog-container" id="blog-container">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog1.jpg" alt="Blog Post 1" onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop'">
+                            <div class="blog-category">Lifestyle</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 Coming Soon</span>
+                            </div>
+                            <h3>My Journey as a Content Creator</h3>
+                            <p>Sharing my experiences and insights from my journey in content creation and connecting with amazing people...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog2.jpg" alt="Blog Post 2" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop'">
+                            <div class="blog-category">Tips & Tricks</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 Coming Soon</span>
+                            </div>
+                            <h3>Behind the Scenes</h3>
+                            <p>Ever wondered what goes on behind the camera? Here's a peek into my creative process...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/blog3.jpg" alt="Blog Post 3" onerror="this.src='https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=800&h=500&fit=crop'">
+                            <div class="blog-category">Personal</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 Coming Soon</span>
+                            </div>
+                            <h3>Life Updates & Reflections</h3>
+                            <p>Sharing some personal thoughts and updates about my life, goals, and upcoming projects...</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="products">
+                <h2>Shop My Products</h2>
+                <div class="products-container" id="products-container">
+                    <a href="https://forms.gle/N1cAHa2aubJf5jn6A" target="_blank" rel="noopener noreferrer" class="product-card">
+                        <div class="product-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3>廸嘉 T-Shirt</h3>
+                            <p>預購表格 Pre-Order Form 🤣👚</p>
+                        </div>
+                        <div class="product-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://linktr.ee/miss.decca" target="_blank" rel="noopener noreferrer" class="product-card energy">
+                        <div class="product-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3>啟靈基地 - 能量印杯墊</h3>
+                            <p class="product-description">來自遠古宇宙的能量印符號，流傳於世界各地，亦應用於各種身心靈的修練。各式各樣的能量印，有不一樣的用途。除了增強環境能量，提升身體能量，更能幫助水晶回復能量。</p>
+                        </div>
+                        <div class="product-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="social-links">
+                <h2>Follow Me</h2>
+                <div class="links-container">
+                    <a href="https://www.instagram.com/miss.decca/" target="_blank" rel="noopener noreferrer" class="social-card personal">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Personal Instagram</h3>
+                            <p>@miss.decca</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/enlightener.hk/" target="_blank" rel="noopener noreferrer" class="social-card business">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Business Instagram</h3>
+                            <p>@enlightener.hk</p>
+                        </div>
+                    </a>
+
+                    <a href="https://17.live/profile/r/22851156" target="_blank" rel="noopener noreferrer" class="social-card live">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>17Live</h3>
+                            <p>MissDecca迪嘉</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/kingsmanuniversal/" target="_blank" rel="noopener noreferrer" class="social-card kingsman">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Kingsman Universal</h3>
+                            <p>@kingsmanuniversal</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/superdogsisi/" target="_blank" rel="noopener noreferrer" class="social-card sisi">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Super Dog Sisi 🐶</h3>
+                            <p>@superdogsisi</p>
+                        </div>
+                    </a>
+
+                    <a href="https://linktr.ee/miss.decca" target="_blank" rel="noopener noreferrer" class="social-card youtube">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>虫虫特攻 YouTube</h3>
+                            <p>生活/靈異/占卜</p>
+                        </div>
+                    </a>
+
+                    <a href="https://linktr.ee/miss.decca" target="_blank" rel="noopener noreferrer" class="social-card linktree">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.953 15.066c-.08.163-.08.324-.08.486.08.517.528.897 1.052.89h1.294v4.776c0 .486-.404.89-.89.89H6.577a.898.898 0 0 1-.889-.891v-4.774H.992c-.728 0-1.214-.729-.89-1.377l6.96-12.627a1.065 1.065 0 0 1 1.863 0l2.913 5.585-3.885 7.042zm15.945 0-6.96-12.627a1.065 1.065 0 0 0-1.862 0l-2.995 5.586 3.885 7.04c.081.164.081.326.081.487-.08.517-.529.897-1.052.89h-1.296v4.776c0 .486.405.89.89.89h2.914a.9.9 0 0 0 .892-.891v-4.774h4.612c.73 0 1.214-.729.89-1.377z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>All Links & Videos</h3>
+                            <p>linktr.ee/miss.decca</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Decca. All rights reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.3;"><a href="admin/" style="color: inherit; text-decoration: none; font-size: 0.8rem;">Manager Login</a></p>
+        </footer>
+    </div>
+
+    <!-- Data Loader Script (Optional - enhances content if JSON files are available) -->
+    <script>
+        async function loadData() {
+            try {
+                // Load Settings (only if JSON is available)
+                const settings = await fetch('data/settings.json').then(r => {
+                    if (!r.ok) throw new Error('Settings not available');
+                    return r.json();
+                });
+                document.getElementById('main-name').textContent = settings.name;
+                document.getElementById('main-name-en').textContent = settings.name_english;
+                document.getElementById('main-tagline').textContent = settings.tagline;
+                document.getElementById('about-zh').textContent = settings.about_zh;
+                document.getElementById('about-en').textContent = settings.about_en;
+                document.getElementById('stat-posts').textContent = settings.stats.posts;
+                document.getElementById('stat-followers').textContent = settings.stats.followers;
+                document.getElementById('stat-following').textContent = settings.stats.following;
+            } catch (e) {
+                // Fallback: Use default content already in HTML
+                console.log("Using default content from HTML");
+            }
+        }
+        loadData();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

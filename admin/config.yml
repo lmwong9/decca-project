@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true # Allows testing locally
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "settings"
+    label: "Website Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "General Info"
+        file: "data/settings.json"
+        fields:
+          - {label: "Full Name", name: "name", widget: "string"}
+          - {label: "English Name", name: "name_english", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "About Text (Chinese)", name: "about_zh", widget: "text"}
+          - {label: "About Text (English)", name: "about_en", widget: "text"}
+          - label: "Stats"
+            name: "stats"
+            widget: "object"
+            fields:
+              - {label: "Posts", name: "posts", widget: "string"}
+              - {label: "Followers", name: "followers", widget: "string"}
+              - {label: "Following", name: "following", widget: "string"}
+
+  - name: "events"
+    label: "Events & Promotions"
+    folder: "data/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Day", name: "day", widget: "string"}
+      - {label: "Month/Year", name: "month", widget: "string"}
+      - {label: "Is Promotion?", name: "is_promotion", widget: "boolean", default: false}
+      - {label: "Category Tag", name: "tag", widget: "string", default: "Event"}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "data/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Date String", name: "date", widget: "string", default: "Coming Soon"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Body Content", name: "body", widget: "markdown"}
+
+  - name: "products"
+    label: "Merchandise"
+    folder: "data/products"
+    create: true
+    slug: "{{title}}"
+    fields:
+      - {label: "Product Name", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Purchase Link", name: "link", widget: "string"}
+      - {label: "Card Class", name: "class", widget: "select", options: ["", "energy", "tshirt"]}
+
+  - name: "services"
+    label: "Services"
+    file: "data/services.json"
+    fields:
+      - label: "Service List"
+        name: "services"
+        widget: "list"
+        fields:
+          - {label: "Icon (Emoji)", name: "icon", widget: "string"}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "English Name", name: "english_name", widget: "string"}
+

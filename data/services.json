@@ -1,0 +1,13 @@
+{
+  "services": [
+    { "icon": "🔮", "name": "啟靈導師", "english_name": "Spiritual Awakening" },
+    { "icon": "✨", "name": "靈性導師", "english_name": "Spiritual Guide" },
+    { "icon": "💫", "name": "人生導師", "english_name": "Life Coach" },
+    { "icon": "💖", "name": "心靈療癒", "english_name": "Spiritual Healing" },
+    { "icon": "🎴", "name": "占卜", "english_name": "Divination" },
+    { "icon": "⏳", "name": "前世今生", "english_name": "Past Life Regression" },
+    { "icon": "🐾", "name": "動物傳心", "english_name": "Animal Communication" },
+    { "icon": "🕯️", "name": "先人問事", "english_name": "Ancestral Communication" }
+  ]
+}
+
