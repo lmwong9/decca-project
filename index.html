@@ -336,9 +336,6 @@
     <script>
         async function loadData() {
             try {
-                // Fetch the manifest to know what files to load
-                const manifest = await fetch('data/manifest.json').then(r => r.json());
-
                 // 1. Load Settings & Gallery
                 const settings = await fetch('data/settings.json').then(r => r.json());
                 document.getElementById('main-name').textContent = settings.name;
@@ -358,13 +355,6 @@
                             <img src="${p.image}" alt="${p.alt || 'Decca'}" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
                         </div>
                     `).join('');
-                } else {
-                    // Fallback placeholders
-                    galleryContainer.innerHTML = `
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop" alt="Placeholder"></div>
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=600&fit=crop" alt="Placeholder"></div>
-                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop" alt="Placeholder"></div>
-                    `;
                 }
 
                 // 2. Load Services
@@ -378,77 +368,81 @@
                 `).join('');
 
                 // 3. Load Media & Interviews
-                const mediaPromises = manifest.media.map(file => fetch(`data/media/${file}`).then(r => r.json()));
-                const mediaItems = await Promise.all(mediaPromises);
-                document.getElementById('media-container').innerHTML = mediaItems.map(m => `
-                    <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="${m.image}" alt="${m.title}" onerror="this.src='https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">${m.date}</span>
-                            <h3>${m.title}</h3>
-                            <p>${m.subtitle}</p>
-                        </div>
-                    </a>
-                `).join('');
+                const mediaData = await fetch('data/media.json').then(r => r.json());
+                if (mediaData.items && mediaData.items.length > 0) {
+                    document.getElementById('media-container').innerHTML = mediaData.items.map(m => `
+                        <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="media-card">
+                            <div class="media-image">
+                                <img src="${m.image}" alt="${m.title}" onerror="this.src='https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop'">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="media-content">
+                                <span class="media-date">${m.date}</span>
+                                <h3>${m.title}</h3>
+                                <p>${m.subtitle}</p>
+                            </div>
+                        </a>
+                    `).join('');
+                }
 
                 // 4. Load Events
-                const eventPromises = manifest.events.map(file => fetch(`data/events/${file}`).then(r => r.json()));
-                const events = await Promise.all(eventPromises);
-                document.getElementById('events-container').innerHTML = events.map(event => `
-                    <div class="event-card ${event.is_promotion ? 'promotion' : ''}">
-                        <div class="event-date">
-                            <span class="day">${event.day}</span>
-                            <span class="month">${event.month}</span>
+                const eventsData = await fetch('data/events.json').then(r => r.json());
+                if (eventsData.items && eventsData.items.length > 0) {
+                    document.getElementById('events-container').innerHTML = eventsData.items.map(event => `
+                        <div class="event-card ${event.is_promotion ? 'promotion' : ''}">
+                            <div class="event-date">
+                                <span class="day">${event.day}</span>
+                                <span class="month">${event.month}</span>
+                            </div>
+                            <div class="event-content">
+                                <h3>${event.title}</h3>
+                                <p>${event.description}</p>
+                                <span class="event-tag ${event.is_promotion ? 'promo' : ''}">${event.tag}</span>
+                            </div>
                         </div>
-                        <div class="event-content">
-                            <h3>${event.title}</h3>
-                            <p>${event.description}</p>
-                            <span class="event-tag ${event.is_promotion ? 'promo' : ''}">${event.tag}</span>
-                        </div>
-                    </div>
-                `).join('');
+                    `).join('');
+                }
 
                 // 5. Load Blog
-                const blogPromises = manifest.blog.map(file => fetch(`data/blog/${file}`).then(r => r.json()));
-                const blogs = await Promise.all(blogPromises);
-                document.getElementById('blog-container').innerHTML = blogs.map(blog => `
-                    <article class="blog-card">
-                        <div class="blog-image">
-                            <img src="${blog.image}" alt="${blog.title}" onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop'">
-                            <div class="blog-category">${blog.category}</div>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta"><span class="blog-date">${blog.date}</span></div>
-                            <h3>${blog.title}</h3>
-                            <p>${blog.excerpt}</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                `).join('');
+                const blogData = await fetch('data/blog.json').then(r => r.json());
+                if (blogData.items && blogData.items.length > 0) {
+                    document.getElementById('blog-container').innerHTML = blogData.items.map(blog => `
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <img src="${blog.image}" alt="${blog.title}" onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop'">
+                                <div class="blog-category">${blog.category}</div>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta"><span class="blog-date">${blog.date}</span></div>
+                                <h3>${blog.title}</h3>
+                                <p>${blog.excerpt}</p>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                    `).join('');
+                }
 
                 // 6. Load Products
-                const productPromises = manifest.products.map(file => fetch(`data/products/${file}`).then(r => r.json()));
-                const products = await Promise.all(productPromises);
-                document.getElementById('products-container').innerHTML = products.map(p => `
-                    <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="product-card ${p.class || ''}">
-                        <div class="product-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
-                            </svg>
-                        </div>
-                        <div class="product-content">
-                            <h3>${p.title}</h3>
-                            <p>${p.subtitle || ''}</p>
-                            ${p.description ? `<p class="product-description">${p.description}</p>` : ''}
-                        </div>
-                        <div class="product-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                        </div>
-                    </a>
-                `).join('');
+                const productsData = await fetch('data/products.json').then(r => r.json());
+                if (productsData.items && productsData.items.length > 0) {
+                    document.getElementById('products-container').innerHTML = productsData.items.map(p => `
+                        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="product-card ${p.class || ''}">
+                            <div class="product-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+                                </svg>
+                            </div>
+                            <div class="product-content">
+                                <h3>${p.title}</h3>
+                                <p>${p.subtitle || ''}</p>
+                                ${p.description ? `<p class="product-description">${p.description}</p>` : ''}
+                            </div>
+                            <div class="product-arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                            </div>
+                        </a>
+                    `).join('');
+                }
 
             } catch (e) {
                 console.log("CMS data error:", e);
