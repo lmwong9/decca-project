@@ -1,7 +1,13 @@
 {
-  "events": ["example-event.json"],
-  "blog": ["example-blog.json"],
+  "events": ["2025-01-01-upcoming-event.json"],
+  "blog": ["2025-01-01-my-journey.json"],
   "products": ["tshirt.json", "energy-coasters.json"],
-  "media": ["media1.json", "media2.json", "media3.json", "media4.json", "media5.json", "media6.json"]
+  "media": [
+    "2025-01-01-dikembe.json",
+    "2025-04-17-d100.json",
+    "2025-03-31-show.json",
+    "2025-03-25-通靈重案.json",
+    "2025-03-14-犯罪課.json",
+    "2024-12-31-藍可兒.json"
+  ]
 }
-

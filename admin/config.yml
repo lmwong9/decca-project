@@ -34,6 +34,8 @@ collections:
   - name: "events"
     label: "Events & Promotions"
     folder: "data/events"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{title}}"
     fields:
@@ -47,6 +49,8 @@ collections:
   - name: "blog"
     label: "Blog Posts"
     folder: "data/blog"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{title}}"
     fields:
@@ -60,6 +64,8 @@ collections:
   - name: "products"
     label: "Merchandise"
     folder: "data/products"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{title}}"
     fields:
@@ -88,6 +94,8 @@ collections:
   - name: "media"
     label: "Media & Interviews"
     folder: "data/media"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{title}}"
     fields:
