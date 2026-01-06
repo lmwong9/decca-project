@@ -85,3 +85,15 @@ collections:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "English Name", name: "english_name", widget: "string"}
 
+  - name: "media"
+    label: "Media & Interviews"
+    folder: "data/media"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subtitle/Channel", name: "subtitle", widget: "string"}
+      - {label: "YouTube URL", name: "url", widget: "string"}
+      - {label: "Date", name: "date", widget: "string"}
+      - {label: "Thumbnail Image", name: "image", widget: "image", required: false}
+

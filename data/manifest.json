@@ -1,0 +1,7 @@
+{
+  "events": ["example-event.json"],
+  "blog": ["example-blog.json"],
+  "products": ["tshirt.json", "energy-coasters.json"],
+  "media": ["media1.json", "media2.json", "media3.json", "media4.json", "media5.json", "media6.json"]
+}
+

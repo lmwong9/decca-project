@@ -120,78 +120,8 @@
             <section class="media">
                 <h2>Media Appearances & Interviews 🎙️</h2>
                 <p class="section-subtitle">Featured on major TV shows and YouTube channels</p>
-                <div class="media-container">
-                    <a href="https://www.youtube.com/@Dikembe-man?si=dgo7XFg8kSvzgaew" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media1.jpg" alt="狄甘比頻道" onerror="this.src='https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2025</span>
-                            <h3>狄甘比頻道</h3>
-                            <p>多片訪問</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?si=mNqaFuNtWGVmGnXZ&v=riVIjFd0cD0&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media2.jpg" alt="D100 魅影空間" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2025-04-17</span>
-                            <h3>D100 《魅影空間》</h3>
-                            <p>電台訪問</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/live/oNTtTztpZyA?si=_Br8fnNG3WCRlQhn" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media3.jpg" alt="異Show" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2025-03-31</span>
-                            <h3>《異Show》直播</h3>
-                            <p>即場解決靈異事件</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?si=06avcVNaCLWul9Nk&v=qrm7P5S3jtc&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media4.jpg" alt="策略王 通靈重案" onerror="this.src='https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2025-03-25</span>
-                            <h3>《策略王 通靈重案》</h3>
-                            <p>德福五屍命案｜通靈</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/live/l5w4_xtX8No?si=AVtjDstvj882MIFp" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media5.jpg" alt="D100啟靈·犯罪課" onerror="this.src='https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2025-03-14</span>
-                            <h3>《D100啟靈·犯罪課》</h3>
-                            <p>即場通靈｜中山美穗/竹內結子</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.youtube.com/watch?si=MDsj1xcHDoofDOD6&v=E-Oy_HPJARk&feature=youtu.be" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <div class="media-image">
-                            <img src="images/media6.jpg" alt="通靈重案 藍可兒" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=500&fit=crop'">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="media-content">
-                            <span class="media-date">2024-12-31</span>
-                            <h3>《策略王 通靈重案》</h3>
-                            <p>與藍可兒通靈</p>
-                        </div>
-                    </a>
+                <div class="media-container" id="media-container">
+                    <!-- Loaded dynamically from Decap CMS -->
                 </div>
                 <div class="view-all-button">
                     <a href="https://linktr.ee/miss.decca" target="_blank" rel="noopener noreferrer" class="btn-primary">
@@ -410,15 +340,15 @@
         </footer>
     </div>
 
-    <!-- Data Loader Script (Optional - enhances content if JSON files are available) -->
+    <!-- Data Loader Script -->
     <script>
         async function loadData() {
             try {
-                // Load Settings (only if JSON is available)
-                const settings = await fetch('data/settings.json').then(r => {
-                    if (!r.ok) throw new Error('Settings not available');
-                    return r.json();
-                });
+                // Fetch the manifest to know what files to load
+                const manifest = await fetch('data/manifest.json').then(r => r.json());
+
+                // 1. Load Settings
+                const settings = await fetch('data/settings.json').then(r => r.json());
                 document.getElementById('main-name').textContent = settings.name;
                 document.getElementById('main-name-en').textContent = settings.name_english;
                 document.getElementById('main-tagline').textContent = settings.tagline;
@@ -427,9 +357,92 @@
                 document.getElementById('stat-posts').textContent = settings.stats.posts;
                 document.getElementById('stat-followers').textContent = settings.stats.followers;
                 document.getElementById('stat-following').textContent = settings.stats.following;
+
+                // 2. Load Services
+                const servicesData = await fetch('data/services.json').then(r => r.json());
+                document.getElementById('services-container').innerHTML = servicesData.services.map(s => `
+                    <div class="service-item">
+                        <div class="service-icon">${s.icon}</div>
+                        <h3>${s.name}</h3>
+                        <p>${s.english_name}</p>
+                    </div>
+                `).join('');
+
+                // 3. Load Media & Interviews
+                const mediaPromises = manifest.media.map(file => fetch(`data/media/${file}`).then(r => r.json()));
+                const mediaItems = await Promise.all(mediaPromises);
+                document.getElementById('media-container').innerHTML = mediaItems.map(m => `
+                    <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <div class="media-image">
+                            <img src="${m.image}" alt="${m.title}" onerror="this.src='https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=500&fit=crop'">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="media-content">
+                            <span class="media-date">${m.date}</span>
+                            <h3>${m.title}</h3>
+                            <p>${m.subtitle}</p>
+                        </div>
+                    </a>
+                `).join('');
+
+                // 4. Load Events
+                const eventPromises = manifest.events.map(file => fetch(`data/events/${file}`).then(r => r.json()));
+                const events = await Promise.all(eventPromises);
+                document.getElementById('events-container').innerHTML = events.map(event => `
+                    <div class="event-card ${event.is_promotion ? 'promotion' : ''}">
+                        <div class="event-date">
+                            <span class="day">${event.day}</span>
+                            <span class="month">${event.month}</span>
+                        </div>
+                        <div class="event-content">
+                            <h3>${event.title}</h3>
+                            <p>${event.description}</p>
+                            <span class="event-tag ${event.is_promotion ? 'promo' : ''}">${event.tag}</span>
+                        </div>
+                    </div>
+                `).join('');
+
+                // 5. Load Blog
+                const blogPromises = manifest.blog.map(file => fetch(`data/blog/${file}`).then(r => r.json()));
+                const blogs = await Promise.all(blogPromises);
+                document.getElementById('blog-container').innerHTML = blogs.map(blog => `
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="${blog.image}" alt="${blog.title}" onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop'">
+                            <div class="blog-category">${blog.category}</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta"><span class="blog-date">${blog.date}</span></div>
+                            <h3>${blog.title}</h3>
+                            <p>${blog.excerpt}</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                `).join('');
+
+                // 6. Load Products
+                const productPromises = manifest.products.map(file => fetch(`data/products/${file}`).then(r => r.json()));
+                const products = await Promise.all(productPromises);
+                document.getElementById('products-container').innerHTML = products.map(p => `
+                    <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="product-card ${p.class || ''}">
+                        <div class="product-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+                            </svg>
+                        </div>
+                        <div class="product-content">
+                            <h3>${p.title}</h3>
+                            <p>${p.subtitle || ''}</p>
+                            ${p.description ? `<p class="product-description">${p.description}</p>` : ''}
+                        </div>
+                        <div class="product-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                        </div>
+                    </a>
+                `).join('');
+
             } catch (e) {
-                // Fallback: Use default content already in HTML
-                console.log("Using default content from HTML");
+                console.log("CMS data error:", e);
             }
         }
         loadData();
