@@ -1,0 +1,8 @@
+{
+  "photos": [
+    { "image": "images/gallery1.jpg", "alt": "Decca Gallery 1" },
+    { "image": "images/gallery2.jpg", "alt": "Decca Gallery 2" },
+    { "image": "images/gallery3.jpg", "alt": "Decca Gallery 3" }
+  ]
+}
+

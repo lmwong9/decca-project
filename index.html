@@ -52,16 +52,8 @@
 
         <main class="content">
             <section class="gallery">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="images/gallery1.jpg" alt="Decca Gallery 1" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/gallery2.jpg" alt="Decca Gallery 2" onerror="this.src='https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=600&fit=crop'">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/gallery3.jpg" alt="Decca Gallery 3" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop'">
-                    </div>
+                <div class="gallery-grid" id="gallery-container">
+                    <!-- Loaded dynamically from Decap CMS -->
                 </div>
             </section>
 
@@ -347,7 +339,7 @@
                 // Fetch the manifest to know what files to load
                 const manifest = await fetch('data/manifest.json').then(r => r.json());
 
-                // 1. Load Settings
+                // 1. Load Settings & Gallery
                 const settings = await fetch('data/settings.json').then(r => r.json());
                 document.getElementById('main-name').textContent = settings.name;
                 document.getElementById('main-name-en').textContent = settings.name_english;
@@ -357,6 +349,23 @@
                 document.getElementById('stat-posts').textContent = settings.stats.posts;
                 document.getElementById('stat-followers').textContent = settings.stats.followers;
                 document.getElementById('stat-following').textContent = settings.stats.following;
+
+                const galleryData = await fetch('data/gallery.json').then(r => r.json());
+                const galleryContainer = document.getElementById('gallery-container');
+                if (galleryData.photos && galleryData.photos.length > 0) {
+                    galleryContainer.innerHTML = galleryData.photos.map(p => `
+                        <div class="gallery-item">
+                            <img src="${p.image}" alt="${p.alt || 'Decca'}" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
+                        </div>
+                    `).join('');
+                } else {
+                    // Fallback placeholders
+                    galleryContainer.innerHTML = `
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop" alt="Placeholder"></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&h=600&fit=crop" alt="Placeholder"></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop" alt="Placeholder"></div>
+                    `;
+                }
 
                 // 2. Load Services
                 const servicesData = await fetch('data/services.json').then(r => r.json());

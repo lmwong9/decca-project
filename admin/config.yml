@@ -30,6 +30,16 @@ collections:
               - {label: "Posts", name: "posts", widget: "string"}
               - {label: "Followers", name: "followers", widget: "string"}
               - {label: "Following", name: "following", widget: "string"}
+      - name: "gallery"
+        label: "Photo Gallery"
+        file: "data/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Alt Text", name: "alt", widget: "string", required: false}
 
   - name: "events"
     label: "Events & Promotions"
