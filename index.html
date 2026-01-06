@@ -347,14 +347,21 @@
                 document.getElementById('stat-followers').textContent = settings.stats.followers;
                 document.getElementById('stat-following').textContent = settings.stats.following;
 
-                const galleryData = await fetch('data/gallery.json').then(r => r.json());
-                const galleryContainer = document.getElementById('gallery-container');
-                if (galleryData.photos && galleryData.photos.length > 0) {
-                    galleryContainer.innerHTML = galleryData.photos.map(p => `
-                        <div class="gallery-item">
-                            <img src="${p.image}" alt="${p.alt || 'Decca'}" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
-                        </div>
-                    `).join('');
+                try {
+                    const galleryData = await fetch('data/gallery.json').then(r => r.json());
+                    const galleryContainer = document.getElementById('gallery-container');
+                    if (galleryData.photos && galleryData.photos.length > 0) {
+                        galleryContainer.innerHTML = galleryData.photos.map(p => `
+                            <div class="gallery-item">
+                                <img src="${p.image}" alt="${p.alt || 'Decca'}" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop'">
+                            </div>
+                        `).join('');
+                    } else {
+                        galleryContainer.innerHTML = ''; // Hide gallery section if empty
+                        document.querySelector('.gallery').style.display = 'none';
+                    }
+                } catch (e) {
+                    console.log("Gallery data not found");
                 }
 
                 // 2. Load Services
