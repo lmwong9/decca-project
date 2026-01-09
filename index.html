@@ -326,6 +326,30 @@
             </section>
         </main>
 
+        <section class="card-draw-section">
+            <div class="draw-container">
+                <h2>Daily Affirmation Card 🌈</h2>
+                <p class="draw-subtitle">Take a deep breath and draw your card of the day</p>
+                
+                <div class="card-display" id="card-display">
+                    <div class="card-inner" id="card-inner">
+                        <div class="card-front">
+                            <div class="card-back-design">
+                                <span>?</span>
+                            </div>
+                        </div>
+                        <div class="card-back" id="card-content">
+                            <!-- Card content will be loaded here -->
+                            <p class="card-text-zh" id="card-text-zh"></p>
+                            <p class="card-text-en" id="card-text-en"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="draw-btn" class="btn-draw">Draw a Card ✨</button>
+            </div>
+        </section>
+
         <footer>
             <p>&copy; 2025 Decca. All rights reserved.</p>
             <p style="margin-top: 1rem; opacity: 0.3;"><a href="admin/" style="color: inherit; text-decoration: none; font-size: 0.8rem;">Manager Login</a></p>
@@ -449,6 +473,49 @@
                             </div>
                         </a>
                     `).join('');
+                }
+
+                // 7. Initialize Card Draw
+                try {
+                    const cardsData = await fetch('data/cards.json').then(r => r.json());
+                    const drawBtn = document.getElementById('draw-btn');
+                    const cardInner = document.getElementById('card-inner');
+                    const cardBack = document.getElementById('card-content');
+                    const zhText = document.getElementById('card-text-zh');
+                    const enText = document.getElementById('card-text-en');
+                    
+                    let isDrawing = false;
+
+                    drawBtn.addEventListener('click', () => {
+                        if (isDrawing) return;
+                        isDrawing = true;
+                        
+                        // Flip back first if it's already flipped
+                        if (cardInner.classList.contains('is-flipped')) {
+                            cardInner.classList.remove('is-flipped');
+                            setTimeout(drawCard, 400);
+                        } else {
+                            drawCard();
+                        }
+                    });
+
+                    function drawCard() {
+                        const randomCard = cardsData.items[Math.floor(Math.random() * cardsData.items.length)];
+                        
+                        // Set content
+                        zhText.textContent = randomCard.message;
+                        enText.textContent = randomCard.english_message;
+                        cardBack.style.backgroundColor = randomCard.color || '#ffffff';
+                        
+                        // Flip card
+                        cardInner.classList.add('is-flipped');
+                        
+                        setTimeout(() => {
+                            isDrawing = false;
+                        }, 800);
+                    }
+                } catch (e) {
+                    console.log("Cards data not found");
                 }
 
             } catch (e) {

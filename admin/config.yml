@@ -112,3 +112,15 @@ collections:
               - {label: "Icon (Emoji)", name: "icon", widget: "string"}
               - {label: "Name", name: "name", widget: "string"}
               - {label: "English Name", name: "english_name", widget: "string"}
+
+      - name: "daily_cards"
+        label: "Daily Affirmation Cards"
+        file: "data/cards.json"
+        fields:
+          - label: "All Cards"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Message (Chinese)", name: "message", widget: "string"}
+              - {label: "Message (English)", name: "english_message", widget: "string"}
+              - {label: "Background Color (Hex code)", name: "color", widget: "string", default: "#667eea"}
